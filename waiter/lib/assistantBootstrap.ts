@@ -1,5 +1,5 @@
 const assistantBootstrapId = "groom-assistant";
-const assistantBootstrapUrl = "http://localhost:3000/groom-assistant.umd.cjs";
+const assistantBootstrapUrl = "http://localhost:3000/groom-assistant.js";
 
 export function bootstrapAssistant() {
   const div = document.createElement("div");
