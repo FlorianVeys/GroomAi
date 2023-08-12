@@ -1,0 +1,27 @@
+{
+  "name": "groomai",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "npm run build:assistant && npm run build:waiter",
+    "build:assistant": "npm --prefix assistant run build:lib",
+    "build:waiter": "npm --prefix waiter run build",
+    "start:local": "npm run build && npm run expose:assistant && npm run expose:waiter",
+    "expose:assistant": "http-server ./assistant/dist/. -p 3000 --cors -c-1",
+    "expose:waiter": "http-server ./waiter/dist/. -p 3001 --cors -c-1",
+    "expose:index": "http-server . -p 3002 --cors -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlorianVeys/GroomAi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FlorianVeys/GroomAi/issues"
+  },
+  "homepage": "https://github.com/FlorianVeys/GroomAi#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
