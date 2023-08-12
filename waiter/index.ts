@@ -1,10 +1,19 @@
 import { bootstrapAssistant } from "./lib/assistantBootstrap";
+import {
+  loadStartupPointFromWS,
+  loadStartupPointsInSessionStorage,
+  searchStartupPointInDOM,
+} from "./lib/startupPoint";
 
 function startup() {
-  const inputField = document.getElementById("inputFieldText");
+  const startupPoints = loadStartupPointFromWS();
+  if (startupPoints.length) {
+    const elements = searchStartupPointInDOM(startupPoints);
 
-  if (inputField) {
-    bootstrapAssistant()
+    if (elements.length) {
+      loadStartupPointsInSessionStorage(elements);
+      bootstrapAssistant();
+    }
   }
 }
 
