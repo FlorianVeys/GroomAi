@@ -1,7 +1,6 @@
 // vite.config.js
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 export default defineConfig({
   build: {
@@ -12,20 +11,9 @@ export default defineConfig({
       fileName: 'groom-assistant',
     },
     rollupOptions: {
-        plugins: [
-            // Preferably set as first plugin.
-            peerDepsExternal(),
-        ],
-      // make sure to externalize deps that shouldn't be bundled
-      // into your library
-      external: ['react'],
-      output: {
-        // Provide global variables to use in the UMD build
-        // for externalized deps
-        globals: {
-          react: 'React',
-        },
-      },
     },
   },
+  define: {
+    'process.env': {}
+  }
 })
