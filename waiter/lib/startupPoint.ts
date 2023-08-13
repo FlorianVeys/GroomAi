@@ -1,4 +1,5 @@
-import { StartupPoint, StartupPointElement } from "../type/StartupPoint";
+import { SESSION_STARTUP_POINTS_KEY } from "../../shared/constant";
+import { StartupPoint, StartupPointElement } from "../../shared/type/StartupPoint";
 
 export function loadStartupPointFromWS(): StartupPoint[] {
   // Fake data should be fetch from web service in the future
@@ -43,7 +44,7 @@ export function loadStartupPointsInSessionStorage(
   startupPoints: StartupPointElement[],
 ) {
   sessionStorage.setItem(
-    "groom-ai-startupPoints",
+    SESSION_STARTUP_POINTS_KEY,
     JSON.stringify(
       startupPoints.map((p) => {
         return {
