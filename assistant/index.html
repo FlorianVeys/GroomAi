@@ -1,12 +1,42 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="groom-assistant"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React + TS</title>
+</head>
+
+<body>
+  <h1>Text field: </h1>
+  <input type="text" id="inputFieldText">
+
+  <div id="groom-assistant"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  <script>
+    if (!sessionStorage.getItem("groom-ai-startupPoints")) {
+      sessionStorage.setItem(
+        "groom-ai-startupPoints",
+        JSON.stringify(
+          [
+            {
+              type: "input",
+              identifier: {
+                type: "id",
+                value: "inputFieldText",
+              },
+              actions: [
+                {
+                  type: "translate",
+                  arguments: {},
+                },
+              ],
+            }
+          ]
+        ),
+      );
+    }
+  </script>
+</body>
+
 </html>
