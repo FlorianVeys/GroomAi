@@ -1,0 +1,10 @@
+.assistant-wrapper {
+  width: fit-content;
+  position: relative;
+}
+
+.assistant-position-right {
+  position: absolute;
+  top: 0;
+  right: -20%;
+}
