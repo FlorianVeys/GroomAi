@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { PrePromptController } from './pre-prompt.controller';
-import { PrePromptService } from './pre-prompt.service';
+import { OpenAiModule } from 'src/open-ai/open-ai.module';
 
 @Module({
+  imports: [OpenAiModule],
   controllers: [PrePromptController],
-  providers: [PrePromptService],
+  providers: [],
 })
 export class PrePromptModule {}
