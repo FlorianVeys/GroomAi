@@ -4,6 +4,6 @@ import { PrePromptService } from './pre-prompt.service';
 
 @Module({
   controllers: [PrePromptController],
-  providers: [PrePromptService]
+  providers: [PrePromptService],
 })
 export class PrePromptModule {}
