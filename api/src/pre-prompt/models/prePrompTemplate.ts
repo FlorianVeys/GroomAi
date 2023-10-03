@@ -1,5 +1,6 @@
 import Ajv, { ValidateFunction } from 'ajv';
 import Mustache from 'mustache';
+import { InvalidContextError } from './invalidContextError';
 
 export class PrePromptTemplate {
   protected ajv: Ajv;
@@ -21,7 +22,9 @@ export class PrePromptTemplate {
 
   generatePrePrompt(context: unknown): string {
     if (!this.contextValidator(context)) {
-      throw new Error('Invalid context');
+      throw new InvalidContextError(
+        `Invalid context: expected ${this.contextSchema}`,
+      );
     }
 
     return Mustache.render(this.promptTemplate, context);

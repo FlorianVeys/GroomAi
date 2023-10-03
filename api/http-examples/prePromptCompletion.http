@@ -1,0 +1,12 @@
+@hostname=localhost
+@port=3000
+POST http://{{hostname}}:{{port}}/pre-prompt
+Content-Type: application/json
+
+{
+    "name": "translate",
+    "context": {
+        "text": "Bonjour",
+        "iso": "EN"
+    }
+}
