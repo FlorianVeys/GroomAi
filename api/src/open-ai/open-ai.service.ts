@@ -38,7 +38,7 @@ export class OpenAiService {
         });
       }
 
-      return null;
+      throw e;
     }
   }
 }
