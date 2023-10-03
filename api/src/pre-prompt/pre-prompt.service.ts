@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PrePromptTemplate } from './models/prePrompTemplate';
+import { PrePromptTemplate } from './models/prePromptTemplate';
 import { ApplyPrePromptDto } from './dto/apply-pre-prompt.dto';
 import { OpenAiService } from './../open-ai/open-ai.service';
 

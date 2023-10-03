@@ -1,5 +1,5 @@
 import Ajv, { ValidateFunction } from 'ajv';
-import Mustache from 'mustache';
+import { render as MustacheRender } from 'mustache';
 import { InvalidContextError } from './invalidContextError';
 
 export class PrePromptTemplate {
@@ -27,6 +27,6 @@ export class PrePromptTemplate {
       );
     }
 
-    return Mustache.render(this.promptTemplate, context);
+    return MustacheRender(this.promptTemplate, context);
   }
 }
