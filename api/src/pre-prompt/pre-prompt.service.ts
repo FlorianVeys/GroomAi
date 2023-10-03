@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrePromptTemplate } from './models/prePrompTemplate';
 import { ApplyPrePromptDto } from './dto/apply-pre-prompt.dto';
-import { OpenAiService } from 'src/open-ai/open-ai.service';
+import { OpenAiService } from './../open-ai/open-ai.service';
 
 // TODO - datas should come from datasource
 const translateContextSchema = JSON.stringify({
