@@ -1,10 +1,8 @@
 import { Module } from '@nestjs/common';
-import { PrePromptController } from './pre-prompt/pre-prompt.controller';
 import { PrePromptModule } from './pre-prompt/pre-prompt.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [PrePromptModule],
-  controllers: [PrePromptController],
-  providers: [],
+  imports: [ConfigModule.forRoot(), PrePromptModule],
 })
 export class AppModule {}

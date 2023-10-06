@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { PrePromptTemplate } from './models/prePrompTemplate';
+import { PrePromptTemplate } from './models/prePromptTemplate';
 import { ApplyPrePromptDto } from './dto/apply-pre-prompt.dto';
+import { OpenAiService } from './../open-ai/open-ai.service';
 
 // TODO - datas should come from datasource
 const translateContextSchema = JSON.stringify({
@@ -36,6 +37,8 @@ export class PrePromptService {
     ],
   ]);
 
+  constructor(private openAi: OpenAiService) {}
+
   async applyPrePrompt(
     prePromptRequest: ApplyPrePromptDto,
   ): Promise<string | null> {
@@ -48,7 +51,6 @@ export class PrePromptService {
     ) as PrePromptTemplate;
     const prompt = templater.generatePrePrompt(prePromptRequest.context);
 
-    // Call openai service here
-    throw new Error('Not implemented');
+    return this.openAi.completion(prompt);
   }
 }
